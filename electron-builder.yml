@@ -28,6 +28,8 @@ mac:
       arch: universal
   identity: "-"
   hardenedRuntime: false
+  # The Intel and Apple Silicon halves both carry both image libraries, so the merge must leave these alone.
+  x64ArchFiles: "**/node_modules/@img/**"
   electronLanguages:
     - en
     - en_US

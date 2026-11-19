@@ -12,8 +12,8 @@
     "test": "node test/run-tests.js",
     "make-icon": "node scripts/make-icon.js",
     "fetch-binaries": "node scripts/fetch-binaries.js",
-    "dist:mac": "electron-builder --mac --universal",
-    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac --universal --publish never",
+    "dist:win": "electron-builder --win --publish never",
     "dist:dir": "electron-builder --dir"
   },
   "dependencies": {
