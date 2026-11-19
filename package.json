@@ -1,0 +1,38 @@
+{
+  "name": "converto",
+  "productName": "Converto",
+  "version": "0.1.0",
+  "description": "Drop a file, pick a format, get the result. Everything runs on your computer.",
+  "main": "src/main/main.js",
+  "author": "Converto",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/run-tests.js",
+    "make-icon": "node scripts/make-icon.js",
+    "fetch-binaries": "node scripts/fetch-binaries.js",
+    "dist:mac": "electron-builder --mac --universal",
+    "dist:win": "electron-builder --win",
+    "dist:dir": "electron-builder --dir"
+  },
+  "dependencies": {
+    "bmp-js": "^0.1.0",
+    "decode-ico": "^0.4.1",
+    "heic-decode": "^2.1.0",
+    "highlight.js": "^11.12.0",
+    "katex": "^0.18.10",
+    "marked": "^18.2.1",
+    "marked-katex-extension": "^5.1.13",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.5.438",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "electron": "45.4.1",
+    "electron-builder": "^26.18.0"
+  },
+  "allowScripts": {
+    "electron-winstaller": false
+  }
+}
