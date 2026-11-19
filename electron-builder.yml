@@ -32,7 +32,7 @@ mac:
     - en
     - en_US
   gatekeeperAssess: false
-  artifactName: Converto-${version}-mac-universal.${ext}
+  artifactName: Converto-Mac.${ext}
   extendInfo:
     # Lets you drop files on the app icon in the Dock. "Alternate" means Converto never steals your default apps.
     CFBundleDocumentTypes:
@@ -55,11 +55,11 @@ win:
       arch: x64
     - target: portable
       arch: x64
-  artifactName: Converto-${version}-windows-${arch}-${target}.${ext}
+  artifactName: Converto-Windows-${target}.${ext}
 nsis:
   oneClick: true
   perMachine: false
   deleteAppDataOnUninstall: false
-  artifactName: Converto-Setup-${version}.${ext}
+  artifactName: Converto-Setup.${ext}
 portable:
-  artifactName: Converto-Portable-${version}.${ext}
+  artifactName: Converto-Portable.${ext}

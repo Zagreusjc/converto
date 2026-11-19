@@ -54,7 +54,8 @@ jobs:
             dist/*.exe
           if-no-files-found: error
 
-  # When you push a tag like v0.1.0, also attach the installers to a GitHub Release.
+  # When you push a tag like v0.1.0, publish the installers as a GitHub Release.
+  # The download website links to "latest", so its buttons always give the newest version.
   release:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: build
@@ -69,4 +70,5 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           files: installers/*
-          draft: true
+          draft: false
+          generate_release_notes: true

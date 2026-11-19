@@ -6,18 +6,23 @@ Drop a file on it, click the format you want, get the result next to the origina
 
 ---
 
-## Getting the installers (no coding needed)
+## Getting Converto (for everyone)
 
-You don't need a Mac *and* a PC. GitHub builds both for you, for free:
+Go to the **download page** and click the big button. It picks Windows or Mac for you.
 
-1. Put this folder on GitHub (a new repository, private is fine) and push it.
-2. On the repository page open the **Actions** tab → **Build installers** → **Run workflow** → **Run workflow**.
-3. Wait about 10–15 minutes until both jobs show a green check.
-4. Click the finished run. At the bottom, under **Artifacts**, download:
-   - **Converto-mac** → contains `Converto-0.1.0-mac-universal.dmg` (works on Apple Silicon *and* Intel Macs)
-   - **Converto-windows** → contains `Converto-Setup-0.1.0.exe` (installer) and `Converto-Portable-0.1.0.exe` (no install; just double-click)
+`https://zagreusjc.github.io/converto/`
 
-   (Tip: pushing a tag such as `v0.1.0` also attaches the same files to a draft *Release*, which is a tidier place to download them from.)
+(Direct links that always give the newest version: `.../releases/latest/download/Converto-Setup.exe`, `Converto-Portable.exe` for Windows, and `Converto-Mac.dmg` for Mac, all under `https://github.com/Zagreusjc/converto`.)
+
+## Publishing a new version (owner only)
+
+The website and downloads update themselves. You only do this:
+
+1. One-time setup: on GitHub open **Settings → Pages** and set **Source** to **GitHub Actions**.
+2. To release: in the **Releases** area create a new release with a new tag such as `v0.1.0` (or run `git tag v0.1.0 && git push origin v0.1.0`).
+3. Wait about 15 minutes. GitHub builds the Windows and Mac installers and attaches them to that release. The download page's buttons point to the latest release, so they start working as soon as it appears.
+
+To just test a build without releasing: **Actions → Build installers → Run workflow**, then download the files from the bottom of the finished run.
 
 ## Installing, and the warning screens
 

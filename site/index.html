@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Converto: convert any file by dropping it in</title>
+<meta name="description" content="Free app for Windows and Mac. Drop a file, click the format you want, done. Works offline. Nothing is uploaded.">
+<link rel="icon" href="icon.png">
+<style>
+:root { --bg:#f5f6f8; --card:#fff; --text:#1d2330; --muted:#657089; --line:#dfe3ea; --accent:#3b6df6; --accent2:#2f5ae0; --soft:#e8eefe; }
+@media (prefers-color-scheme: dark) { :root { --bg:#14171d; --card:#1d222b; --text:#eaeef6; --muted:#98a2b6; --line:#2e3542; --accent:#6c93ff; --accent2:#86a5ff; --soft:#232f4f; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+main { max-width:760px; margin:0 auto; padding:56px 20px 40px; }
+.hero { text-align:center; }
+.hero img { width:96px; height:96px; border-radius:22px; box-shadow:0 8px 28px rgba(40,70,200,.25); }
+h1 { font-size:clamp(32px,6vw,46px); line-height:1.15; margin:22px 0 12px; letter-spacing:-.5px; }
+.sub { color:var(--muted); font-size:19px; margin:0 auto 30px; max-width:540px; }
+.btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:20px; padding:18px 34px; border-radius:16px; box-shadow:0 6px 18px rgba(59,109,246,.35); transition:transform .08s, background .12s; }
+.btn:hover { background:var(--accent2); } .btn:active { transform:translateY(1px); }
+.btn small { display:block; font-weight:500; font-size:13px; opacity:.9; margin-top:2px; }
+.other { margin-top:18px; color:var(--muted); font-size:15px; }
+.other a { color:var(--accent); }
+.hidden { display:none; }
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin:54px 0 10px; }
+.step { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px; text-align:center; }
+.step b { display:grid; place-items:center; width:38px; height:38px; margin:0 auto 10px; border-radius:50%; background:var(--soft); color:var(--accent); font-size:18px; }
+.step p { margin:0; } .step span { color:var(--muted); font-size:15px; }
+h2 { font-size:26px; margin:50px 0 14px; }
+.list { display:grid; gap:10px; padding:0; list-style:none; margin:0; }
+.list li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 18px; }
+.list span { color:var(--muted); }
+details { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 18px; margin:10px 0; }
+summary { cursor:pointer; font-weight:600; }
+details ol { margin:12px 0 4px; padding-left:22px; } details li { margin:6px 0; }
+.note { color:var(--muted); font-size:15px; }
+footer { text-align:center; color:var(--muted); font-size:14px; padding:30px 20px 50px; }
+footer a { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img src="icon.png" alt="Converto app icon">
+    <h1>Convert any file.<br>Just drop it in.</h1>
+    <p class="sub">Free for Windows and Mac. Photos, notebooks, PDFs and more. Nothing gets uploaded and it works without internet.</p>
+
+    <a id="main-btn" class="btn" href="https://github.com/Zagreusjc/converto/releases/latest/download/Converto-Setup.exe">
+      <span id="main-label">Download Converto</span><small id="main-small">Free</small>
+    </a>
+    <p class="other" id="other"></p>
+  </section>
+
+  <section class="steps" aria-label="How it works">
+    <div class="step"><b>1</b><p>Drop your files</p><span>or click Browse</span></div>
+    <div class="step"><b>2</b><p>Click the format you want</p><span>only choices that make sense</span></div>
+    <div class="step"><b>3</b><p>Done</p><span>saved right next to the original</span></div>
+  </section>
+
+  <h2>What it can convert</h2>
+  <ul class="list">
+    <li><strong>Photos</strong> <span>JPG, PNG, WebP, HEIC (iPhone), GIF, BMP, TIFF, ICO, and photos to or from PDF</span></li>
+    <li><strong>Notebooks</strong> <span>Jupyter notebooks to PDF, web page, Python or Markdown</span></li>
+    <li><strong>More coming</strong> <span>documents, audio and video, spreadsheets</span></li>
+  </ul>
+
+  <h2>Safe and private</h2>
+  <ul class="list">
+    <li><strong>Your files never leave your computer.</strong> <span>No uploads, no accounts, no tracking.</span></li>
+    <li><strong>Never overwrites your originals.</strong> <span>If a name is taken it adds a number.</span></li>
+    <li><strong>One tick to remove hidden details.</strong> <span>Photo locations, authors and dates.</span></li>
+  </ul>
+
+  <h2>Installing for the first time</h2>
+  <p class="note">Windows and Mac show a warning for apps from small independent developers. It's normal, takes about 20 seconds, and only happens once.</p>
+  <details id="win-help">
+    <summary>Windows: "Windows protected your PC"</summary>
+    <ol>
+      <li>Open the file you downloaded.</li>
+      <li>Click <strong>More info</strong> (small link in the blue box).</li>
+      <li>Click <strong>Run anyway</strong>. Converto installs and opens.</li>
+    </ol>
+  </details>
+  <details id="mac-help">
+    <summary>Mac: "Apple could not verify Converto"</summary>
+    <ol>
+      <li>Open the downloaded file and drag <strong>Converto</strong> into <strong>Applications</strong>.</li>
+      <li>Open Converto from Applications. When the warning appears, click <strong>Done</strong>.</li>
+      <li>Open <strong>System Settings → Privacy &amp; Security</strong> and scroll down to <em>"Converto" was blocked</em>.</li>
+      <li>Click <strong>Open Anyway</strong> and enter your password. From then on it opens normally.</li>
+    </ol>
+  </details>
+</main>
+<footer>
+  Converto is free and open source. <a href="https://github.com/Zagreusjc/converto">Source code</a> ·
+  <a href="https://github.com/Zagreusjc/converto/issues">Report a problem</a>
+</footer>
+<script>
+(function () {
+  var base = 'https://github.com/Zagreusjc/converto/releases/latest/download/';
+  var ua = navigator.userAgent || '', plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+  var isMac = /Mac/i.test(plat) && !isMobile, isWin = /Win/i.test(plat);
+  var win = { href: base + 'Converto-Setup.exe', label: 'Download for Windows', small: 'Installer · Windows 10 or newer' };
+  var mac = { href: base + 'Converto-Mac.dmg', label: 'Download for Mac', small: 'Works on Apple Silicon and Intel' };
+  var main = isMac ? mac : win, other = isMac ? ['Windows', win] : ['Mac', mac];
+  var btn = document.getElementById('main-btn');
+  if (isMobile) {
+    btn.classList.add('hidden');
+    document.getElementById('other').innerHTML = 'Converto is for computers. Open this page on a Windows PC or Mac to download it.';
+  } else {
+    btn.href = main.href;
+    document.getElementById('main-label').textContent = main.label;
+    document.getElementById('main-small').textContent = main.small;
+    var extra = isWin || !isMac ? ' · <a href="' + base + 'Converto-Portable.exe">Windows portable version (no install)</a>' : '';
+    document.getElementById('other').innerHTML = 'Looking for ' + other[0] + '? <a href="' + other[1].href + '">Download for ' + other[0] + '</a>' + extra;
+  }
+  (isMac ? document.getElementById('mac-help') : document.getElementById('win-help')).open = true;
+})();
+</script>
+</body>
+</html>
