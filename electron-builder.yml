@@ -1,0 +1,65 @@
+appId: com.converto.app
+productName: Converto
+copyright: Converto
+directories:
+  output: dist
+  buildResources: build
+files:
+  - src/**/*
+  - package.json
+  - "!**/*.map"
+  - "!**/node_modules/pdfjs-dist/{legacy,web,types,image_decoders}/**"
+  - "!**/node_modules/katex/{src,contrib}/**"
+  - "!**/node_modules/katex/dist/{contrib,katex.mjs,katex-swap*.css}"
+  - "!**/node_modules/highlight.js/{es,styles,types}/**"
+  - "!**/node_modules/**/{test,tests,__tests__,docs,example,examples}/**"
+  - "!**/*.md"
+asar: true
+asarUnpack:
+  - "**/node_modules/@img/**"
+  - "**/node_modules/sharp/**"
+npmRebuild: false
+afterPack: scripts/after-pack.js
+extraResources: []
+mac:
+  category: public.app-category.utilities
+  target:
+    - target: dmg
+      arch: universal
+  identity: "-"
+  hardenedRuntime: false
+  electronLanguages:
+    - en
+    - en_US
+  gatekeeperAssess: false
+  artifactName: Converto-${version}-mac-universal.${ext}
+  extendInfo:
+    # Lets you drop files on the app icon in the Dock. "Alternate" means Converto never steals your default apps.
+    CFBundleDocumentTypes:
+      - CFBundleTypeName: Files Converto can convert
+        CFBundleTypeRole: Viewer
+        LSHandlerRank: Alternate
+        LSItemContentTypes:
+          - public.image
+          - com.adobe.pdf
+          - public.json
+          - public.data
+dmg:
+  title: Converto
+  window:
+    width: 540
+    height: 380
+win:
+  target:
+    - target: nsis
+      arch: x64
+    - target: portable
+      arch: x64
+  artifactName: Converto-${version}-windows-${arch}-${target}.${ext}
+nsis:
+  oneClick: true
+  perMachine: false
+  deleteAppDataOnUninstall: false
+  artifactName: Converto-Setup-${version}.${ext}
+portable:
+  artifactName: Converto-Portable-${version}.${ext}
